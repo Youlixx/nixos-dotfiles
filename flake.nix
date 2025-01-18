@@ -6,11 +6,13 @@
   };
 
   outputs = { self, nixpkgs }: {
-    nixosConfigurations.replicant = nixpkgs.lib.nixosSystem {
-      system = "x86_64-linux";
-      modules = [
-        ./configuration.nix
-      ];
+    nixosConfigurations = {
+      replicant = nixpkgs.lib.nixosSystem {
+        system = "x86_64-linux";
+        modules = [
+          ./hosts/replicant/configuration.nix
+        ];
+      };
     };
   };
 }
