@@ -101,6 +101,7 @@
     extraGroups = [ "networkmanager" "wheel" "docker" ];
     packages = with pkgs; [
       anki-bin
+      vlc
     ];
   };
 
@@ -128,6 +129,7 @@
     git
     wget
     nano
+    tmux
     pciutils
   ];
 
