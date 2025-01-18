@@ -58,8 +58,8 @@
   # Configure console keymap
   console.keyMap = "fr";
 
-  # Enable CUPS to print documents.
-  services.printing.enable = true;
+  # Enable steam.
+  programs.steam.enable = true;
 
   # Enable sound with pipewire.
   hardware.pulseaudio.enable = false;
