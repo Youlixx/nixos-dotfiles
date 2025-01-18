@@ -5,33 +5,17 @@
 { config, pkgs, ... }:
 
 {
-  imports =
-    [ # Include the results of the hardware scan.
-      ./hardware-configuration.nix
-      ./nvidia.nix
-    ];
+  imports = [
+    ./hardware-configuration.nix
+    ./bootloader.nix
+    ./nvidia.nix
+  ];
 
+  # Enable flakes.
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
-  # Bootloader.
-  # boot.loader.systemd-boot.enable = true;
-  boot.loader.efi.canTouchEfiVariables = true;
-
-  # Enable grub.
-  boot.loader.grub.enable = true;
-  # boot.loader.grub.device = "/dev/disk/by-id/nvme-Micron_2400_MTFDKBA512QFM_23013D8E51F5";
-  boot.loader.grub.device = "nodev";
-  boot.loader.grub.useOSProber = true;
-  boot.loader.grub.efiSupport = true;
-  boot.loader.efi.efiSysMountPoint = "/boot";
-
-
-  networking.hostName = "nixos"; # Define your hostname.
-  # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
-
-  # Configure network proxy if necessary
-  # networking.proxy.default = "http://user:password@proxy:port/";
-  # networking.proxy.noProxy = "127.0.0.1,localhost,internal.domain";
+  # Machine hotname.
+  networking.hostName = "replicant";
 
   # Enable networking
   networking.networkmanager.enable = true;
@@ -39,34 +23,41 @@
   # Set your time zone.
   time.timeZone = "Europe/Paris";
 
-  # Select internationalisation properties.
-  i18n.defaultLocale = "en_US.UTF-8";
-
+  # Internationalization and localization properties.
   i18n = {
+    # Set the locale to en_US.
+    defaultLocale = "en_US.UTF-8";
+
+    # Use French locale for time, number, etc...
+    extraLocaleSettings = {
+      LC_ADDRESS = "fr_FR.UTF-8";
+      LC_IDENTIFICATION = "fr_FR.UTF-8";
+      LC_MEASUREMENT = "fr_FR.UTF-8";
+      LC_MONETARY = "fr_FR.UTF-8";
+      LC_NAME = "fr_FR.UTF-8";
+      LC_NUMERIC = "fr_FR.UTF-8";
+      LC_PAPER = "fr_FR.UTF-8";
+      LC_TELEPHONE = "fr_FR.UTF-8";
+      LC_TIME = "fr_FR.UTF-8";
+    };
+
+    # Enable mozc as the Japanese IME.
     inputMethod = {
       type = "ibus";
       enable = true;
       ibus.engines = with pkgs.ibus-engines; [ mozc ];
     };
-  };
+  }
 
+  # Environment variables.
   environment.variables = {
     GTK_IM_MODULE = "ibus";
     QT_IM_MODULE = "ibus";
     XMODIFIERS = "@im=ibus";
-    MOZC_IBUS_CANDIDATE_WINDOW = "ibus";
-  };
 
-  i18n.extraLocaleSettings = {
-    LC_ADDRESS = "fr_FR.UTF-8";
-    LC_IDENTIFICATION = "fr_FR.UTF-8";
-    LC_MEASUREMENT = "fr_FR.UTF-8";
-    LC_MONETARY = "fr_FR.UTF-8";
-    LC_NAME = "fr_FR.UTF-8";
-    LC_NUMERIC = "fr_FR.UTF-8";
-    LC_PAPER = "fr_FR.UTF-8";
-    LC_TELEPHONE = "fr_FR.UTF-8";
-    LC_TIME = "fr_FR.UTF-8";
+    # The follwing environment variable fixes mozc auto-completion window
+    # appearing white, in the top-left corner of the screen.
+    MOZC_IBUS_CANDIDATE_WINDOW = "ibus";
   };
 
   # Fonts setup
