@@ -100,7 +100,6 @@
   # Adds the nvtop command with support for NVIDIA and AMD GPUs.
   # See https://github.com/Syllo/nvtop.
   environment.systemPackages = with pkgs.nvtopPackages; [
-    nvidia
-    amd
+    full
   ];
 }
