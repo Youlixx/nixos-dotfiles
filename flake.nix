@@ -11,6 +11,7 @@
         system = "x86_64-linux";
         modules = [
           ./hosts/replicant/configuration.nix
+          ./modules
         ];
       };
     };
