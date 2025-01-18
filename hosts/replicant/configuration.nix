@@ -44,7 +44,8 @@
 
   i18n = {
     inputMethod = {
-      enabled = "ibus";
+      type = "ibus";
+      enable = true;
       ibus.engines = with pkgs.ibus-engines; [ mozc ];
     };
   };
@@ -61,6 +62,16 @@
     LC_TIME = "fr_FR.UTF-8";
   };
 
+  # Fonts setup
+  fonts = {
+    enableDefaultPackages = true;
+    fontDir.enable = true;
+    packages = with pkgs; [
+      cantarell-fonts
+      noto-fonts-cjk-sans
+      nerd-fonts.jetbrains-mono
+    ];
+  };
 
   # Configure console keymap
   console.keyMap = "fr";
