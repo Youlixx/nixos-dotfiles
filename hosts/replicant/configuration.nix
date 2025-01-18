@@ -50,6 +50,13 @@
     };
   };
 
+  environment.variables = {
+    GTK_IM_MODULE = "ibus";
+    QT_IM_MODULE = "ibus";
+    XMODIFIERS = "@im=ibus";
+    MOZC_IBUS_CANDIDATE_WINDOW = "ibus";
+  };
+
   i18n.extraLocaleSettings = {
     LC_ADDRESS = "fr_FR.UTF-8";
     LC_IDENTIFICATION = "fr_FR.UTF-8";
