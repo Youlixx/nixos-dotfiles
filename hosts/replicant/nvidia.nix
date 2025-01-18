@@ -1,6 +1,6 @@
 # NVIDIA provides a proprietary driver for its graphics cards that has better 3D
 # performance than the X.org drivers. It is not enabled by default because it’s not free
-# software. Manual: https://nixos.wiki/wiki/Nvidia
+# software. Manual: https://nixos.wiki/wiki/Nvidia.
 { config, lib, pkgs, ... }:
 
 {
@@ -96,4 +96,11 @@
       nvidiaBusId = "PCI:1:0:0";
     };
   };
+
+  # Adds the nvtop command with support for NVIDIA and AMD GPUs.
+  # See https://github.com/Syllo/nvtop.
+  environment.systemPackages = with pkgs.nvtopPackages; [
+    nvidia
+    amd
+  ];
 }
