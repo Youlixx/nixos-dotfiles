@@ -47,7 +47,7 @@
       enable = true;
       ibus.engines = with pkgs.ibus-engines; [ mozc ];
     };
-  }
+  };
 
   # Environment variables.
   environment.variables = {
@@ -98,7 +98,7 @@
     isNormalUser = true;
     shell = pkgs.zsh;
     description = "Youlix";
-    extraGroups = [ "networkmanager" "wheel" ];
+    extraGroups = [ "networkmanager" "wheel" "docker" ];
     packages = with pkgs; [
       anki-bin
     ];
@@ -114,16 +114,17 @@
     };
   };
 
+  # Enable docker service.
+  virtualisation.docker.enable = true;
+
   # Install firefox.
   programs.firefox.enable = true;
 
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
 
-  # List packages installed in system profile. To search, run:
-  # $ nix search wget
+  # List packages installed in system profile.
   environment.systemPackages = with pkgs; [
-  #  vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
     git
     wget
     nano
