@@ -80,11 +80,22 @@
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.youlix = {
     isNormalUser = true;
+    shell = pkgs.zsh;
     description = "Youlix";
     extraGroups = [ "networkmanager" "wheel" ];
     packages = with pkgs; [
       git
     ];
+  };
+
+  programs.zsh = {
+    enable = true;
+    enableCompletion = true;
+    ohMyZsh = {
+      enable = true;
+      plugins = [ "git" ];
+      theme = "eastwood";
+    };
   };
 
   # Install firefox.
