@@ -42,6 +42,13 @@
   # Select internationalisation properties.
   i18n.defaultLocale = "en_US.UTF-8";
 
+  i18n = {
+    inputMethod = {
+      enabled = "ibus";
+      ibus.engines = with pkgs.ibus-engines; [ mozc ];
+    };
+  };
+
   i18n.extraLocaleSettings = {
     LC_ADDRESS = "fr_FR.UTF-8";
     LC_IDENTIFICATION = "fr_FR.UTF-8";
@@ -84,7 +91,7 @@
     description = "Youlix";
     extraGroups = [ "networkmanager" "wheel" ];
     packages = with pkgs; [
-      git
+      anki-bin
     ];
   };
 
@@ -108,6 +115,7 @@
   # $ nix search wget
   environment.systemPackages = with pkgs; [
   #  vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
+    git
     wget
     nano
     pciutils
