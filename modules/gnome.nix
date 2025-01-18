@@ -17,7 +17,7 @@
 
     # X keyboard layout, or multiple keyboard layouts separated by commas. Required to
     # edit the keyboard layout of the login screen.
-    xkb.layout = {
+    xkb = {
       layout = "fr";
       variant = "azerty";
     };
