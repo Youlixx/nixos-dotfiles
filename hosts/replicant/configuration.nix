@@ -110,7 +110,7 @@
     enableCompletion = true;
     ohMyZsh = {
       enable = true;
-      plugins = [ "git" ];
+      plugins = [ "git" "docker" ];
       theme = "eastwood";
     };
   };
