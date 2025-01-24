@@ -11,6 +11,9 @@
     ./nvidia.nix
   ];
 
+  # Pin kernel version to 6.6 since to avoid artifacts with AMD
+  boot.kernelPackages = pkgs.linuxPackages_6_6;
+
   # Enable flakes.
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
