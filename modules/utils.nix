@@ -4,6 +4,8 @@
   environment.systemPackages = with pkgs; [
     pass
     wl-clipboard
+    htop
+    tree
   ];
 
   programs.gnupg.agent = {
