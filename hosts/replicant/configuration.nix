@@ -14,6 +14,10 @@
   # Pin kernel version to 6.6 since to avoid artifacts with AMD
   boot.kernelPackages = pkgs.linuxPackages_6_6;
 
+  # Disable wacom drivers since they prevent OTD from working
+  # boot.blacklistedKernelModules = [ "wacom" ];
+  hardware.opentabletdriver.enable = true;
+
   # Enable flakes.
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
