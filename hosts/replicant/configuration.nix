@@ -77,9 +77,6 @@
   # Configure console keymap
   console.keyMap = "fr";
 
-  # Enable steam.
-  programs.steam.enable = true;
-
   # Enable sound with pipewire.
   services.pulseaudio.enable = false;
   security.rtkit.enable = true;

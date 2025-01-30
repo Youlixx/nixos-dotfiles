@@ -12,6 +12,7 @@
         modules = [
           ./hosts/replicant/configuration.nix
           ./modules
+          ./modules/games.nix
         ];
       };
     };
