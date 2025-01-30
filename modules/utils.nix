@@ -6,6 +6,7 @@
     wl-clipboard
     htop
     tree
+    usbutils
   ];
 
   programs.gnupg.agent = {
