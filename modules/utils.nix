@@ -7,6 +7,7 @@
     htop
     tree
     usbutils
+    unzip
   ];
 
   programs.gnupg.agent = {
