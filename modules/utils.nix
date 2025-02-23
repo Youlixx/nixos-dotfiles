@@ -8,6 +8,7 @@
     tree
     usbutils
     unzip
+    gimp
   ];
 
   programs.gnupg.agent = {
@@ -16,6 +17,9 @@
   };
 
   services.openssh.enable = true;
+  services.openvpn.servers = {
+    office = { config = '' config /home/youlix/.openvpn/office.conf ''; };
+  };
 
   programs.ssh.askPassword = "";
 }
