@@ -9,6 +9,7 @@
     usbutils
     unzip
     gimp
+    mpv-unwrapped
   ];
 
   programs.gnupg.agent = {
