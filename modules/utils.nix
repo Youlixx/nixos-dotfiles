@@ -10,6 +10,7 @@
     unzip
     gimp
     mpv-unwrapped
+    nix-template
   ];
 
   programs.gnupg.agent = {
