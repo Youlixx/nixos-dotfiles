@@ -30,6 +30,7 @@
   # Use GNOME terminal instead of XTerm.
   environment.systemPackages = with pkgs; [
     gnome-terminal
+    loupe
   ];
 
   # Which packages GNOME should exclude from the default environment. The default GNOME
