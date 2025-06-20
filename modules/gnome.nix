@@ -4,27 +4,29 @@
 { pkgs, ... }:
 
 {
-  # Enable the X11 windowing system.
-  services.xserver = {
-    # Whether to enable the X server.
-    enable = true;
+  services = {
+    # Enable GNOME desktop manager.
+    desktopManager.gnome.enable = true;
 
     # Whether to enable GDM, the GNOME Display Manager.
     displayManager.gdm.enable = true;
 
-    # Enable GNOME desktop manager.
-    desktopManager.gnome.enable = true;
+    # Enable the X11 windowing system.
+    xserver = {
+      # Whether to enable the X server.
+      enable = true;
 
-    # X keyboard layout, or multiple keyboard layouts separated by commas. Required to
-    # edit the keyboard layout of the login screen.
-    xkb = {
-      layout = "fr";
-      variant = "azerty";
+      # X keyboard layout, or multiple keyboard layouts separated by commas. Required to
+      # edit the keyboard layout of the login screen.
+      xkb = {
+        layout = "fr";
+        variant = "azerty";
+      };
+
+      # Which X11 packages to exclude from the default environment. Removes XTerm from the
+      # default X11 packages.
+      excludePackages = with pkgs; [ xterm ];
     };
-
-    # Which X11 packages to exclude from the default environment. Removes XTerm from the
-    # default X11 packages.
-    excludePackages = with pkgs; [ xterm ];
   };
 
   # Use GNOME terminal instead of XTerm.
