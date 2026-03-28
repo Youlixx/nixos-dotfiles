@@ -19,6 +19,7 @@
         system = "x86_64-linux";
         modules = [
           ./hosts/yohra/configuration.nix
+          ./modules/gnome.nix
         ];
       };
     };
