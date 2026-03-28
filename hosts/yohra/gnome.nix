@@ -2,19 +2,16 @@
 
 {
   # GNOME configuration overrides.
-  services.displayManager = {
-    # Enable auto login.
-    autoLogin = {
-      enable = true;
-      user = "youlix";
-    };
+  services.displayManager.autoLogin = {
+    enable = true;
+    user = "youlix";
   };
-    # Enable fractional scaling.
-    services.desktopManager.gnome.extraGSettingsOverrides = ''
-      [org/gnome/mutter]
-      experimental-features=['scale-monitor-framebuffer']
-    '';
-  
+
+  # Enable fractional scaling.
+  services.desktopManager.gnome.extraGSettingsOverrides = ''
+    [org/gnome/mutter]
+    experimental-features=['scale-monitor-framebuffer']
+  '';
 
   # GNOME extensions
   environment.systemPackages = with pkgs; [
