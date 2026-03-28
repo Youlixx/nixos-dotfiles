@@ -8,10 +8,13 @@
   };
 
   # Enable fractional scaling.
-  services.desktopManager.gnome.extraGSettingsOverrides = ''
-    [org/gnome/mutter]
-    experimental-features=['scale-monitor-framebuffer']
-  '';
+  services.desktopManager.gnome = {
+    extraGSettingsOverridePackages = [ pkgs.mutter ];
+    extraGSettingsOverrides = ''
+      [org.gnome.mutter]
+      experimental-features=['scale-monitor-framebuffer', 'xwayland-native-scaling']
+    '';
+  };
 
   # GNOME extensions
   environment.systemPackages = with pkgs; [
