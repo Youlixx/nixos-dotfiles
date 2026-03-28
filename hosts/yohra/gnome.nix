@@ -15,7 +15,6 @@
       experimental-features=['scale-monitor-framebuffer']
     '';
   };
-  services.desktopManager.gnome.extraGSettingsOverrides
 
   # GNOME extensions
   environment.systemPackages = with pkgs; [
