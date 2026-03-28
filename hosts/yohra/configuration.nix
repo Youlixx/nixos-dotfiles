@@ -91,7 +91,6 @@
 
   # Enable docker service.
   virtualisation.docker.enable = true;
-  hardware.nvidia-container-toolkit.enable = true;
 
   # Install firefox.
   programs.firefox.enable = true;
