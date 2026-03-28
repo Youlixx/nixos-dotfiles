@@ -1,11 +1,21 @@
 { pkgs, ... }:
 
 {
-  # Auto login
-  services.displayManager.autoLogin = {
-    enable = true;
-    user = "youlix";
+  # GNOME configuration overrides.
+  services.displayManager = {
+    # Enable auto login.
+    autoLogin = {
+      enable = true;
+      user = "youlix";
+    };
+
+    # Enable fractional scaling.
+    gnome.extraGSettingsOverrides = ''
+      [org/gnome/mutter]
+      experimental-features=['scale-monitor-framebuffer']
+    '';
   };
+  services.desktopManager.gnome.extraGSettingsOverrides
 
   # GNOME extensions
   environment.systemPackages = with pkgs; [
