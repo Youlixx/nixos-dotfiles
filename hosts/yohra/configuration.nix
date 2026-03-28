@@ -9,6 +9,7 @@
     [
       ./hardware-configuration.nix
       ./bootloader.nix
+      ./gnome.nix
     ];
 
   # Enable flakes
