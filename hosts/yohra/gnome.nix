@@ -10,7 +10,7 @@
     };
   };
     # Enable fractional scaling.
-    services.displayManager.gnome.extraGSettingsOverrides = ''
+    services.xserver.desktopManager.gnome.extraGSettingsOverrides = ''
       [org/gnome/mutter]
       experimental-features=['scale-monitor-framebuffer']
     '';
